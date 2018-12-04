@@ -1,0 +1,22 @@
+{
+  "db": {
+    "name": "db",
+    "connector": "memory"
+  },
+  "Postgres": {
+    "host": "localhost",
+    "port": 5432,
+    "url": "",
+    "database": "une-gestor",
+    "password": "is22alvet",
+    "name": "Postgres",
+    "user": "postgres",
+    "connector": "postgresql"
+  },
+  "storage": {
+    "name": "storage",
+    "connector": "loopback-component-storage",
+    "provider": "filesystem",
+    "root": "C:\\Users\\Pablo Sierralta\\development\\une-gestor-atletas\\storage"
+  }
+}

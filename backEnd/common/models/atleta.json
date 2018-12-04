@@ -1,0 +1,47 @@
+{
+  "name": "atleta",
+  "plural": "atletas",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "id": {
+      "type": "number",
+      "required": true
+    },
+    "nombre": {
+      "type": "string",
+      "required": true
+    },
+    "apellido": {
+      "type": "string",
+      "required": true
+    },
+    "fechaNacimiento": {
+      "type": "date",
+      "required": true
+    },
+    "dni": {
+      "type": "string",
+      "required": true
+    },
+    "estado": {
+      "type": "number",
+      "required": true
+    },
+    "imagen": {
+      "type": "string",
+      "required": true
+    },
+    "idTipoDocumento": {
+      "type": "number",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}
