@@ -3,7 +3,6 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { User } from '../_models/index';
-
 import { environment } from '../../environments/environment';
 
 @Injectable()
@@ -18,7 +17,6 @@ export class AuthenticationService {
         this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
         this.currentUser = this.currentUserSubject.asObservable();
     }
-
 
     public get currentUserValue(): User {
         return this.currentUserSubject.value;
@@ -38,9 +36,7 @@ export class AuthenticationService {
                     localStorage.setItem('userRoles', "admin");
                 } else {
                     localStorage.setItem('userRoles', "user");
-
                 }
-
             }
             else {
                 throw "Usuario o contraseña incorrecto";
