@@ -24,36 +24,29 @@ export class AuthenticationService {
         return this.currentUserSubject.value;
     }
 
-
     login(login: string, password: string) {
-        let params = new HttpParams();
+        return this.http.get<any>(this.API_URL + '/api/users2/count', {
+            params:
+                { where: JSON.stringify({ login: login, password: password }) }
+        }).pipe(map(user => {
+            if (user && user.count > 0) {
+                // store user details and jwt token in local storage to keep user logged in between page refreshes
+                //localStorage.setItem('currentUser', JSON.stringify(user));
+                localStorage.setItem('currentUser', JSON.stringify({ login: login, password: password }));
 
-        // Begin assigning parameters
-        params = params.append('login', login);
-        params = params.append('password',password);
+                if (login === "admin") {
+                    localStorage.setItem('userRoles', "admin");
+                } else {
+                    localStorage.setItem('userRoles', "user");
 
-        return this.http.get<any>(this.API_URL + '/api/users2/count', { params: params })
-            .pipe(map(user => {
-
- 
-                if (user && user.count > 0) {
-                    // store user details and jwt token in local storage to keep user logged in between page refreshes
-                    //localStorage.setItem('currentUser', JSON.stringify(user));
-                    localStorage.setItem('currentUser',  JSON.stringify({ login: login, password: password }));
-                    
-                    if (login === "admin") {
-                        localStorage.setItem('userRoles', "admin");
-                    } else {
-                        localStorage.setItem('userRoles', "user");
-
-                    }
-                    
                 }
-                else {
-                    throw "Usuario o contraseña incorrecto";
-                }
-            }));
-        }
+
+            }
+            else {
+                throw "Usuario o contraseña incorrecto";
+            }
+        }));
+    }
 
     logout() {
         // remove user from local storage to log user out
