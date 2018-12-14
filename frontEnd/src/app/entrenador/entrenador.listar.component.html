@@ -1,0 +1,32 @@
+<div class="container">
+
+<h4>Patrocinadores Registrados:</h4>
+<a class="btn btn-default btn-sm" [routerLink]="['/sponsor.register']">Registrar nuevo sponsor</a>
+<br>
+<br>
+
+
+<table class="table table-hover table-sm table-inverse  table-condensed">
+    <thead>
+        <tr>
+            <th style="width: 5%">#</th>
+            <th style="width: 25%">Nombre comercial</th>
+            <th style="width: 20%">Nombre de la empresa</th>
+            <th style="width: 25%">Tipo de documento</th>
+            <th style="width: 25%">Número de documento</th>
+            <th style="width: 20%">Estado</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let sponsor of model">
+            <td>{{sponsor.id}}</td>
+            <td>{{sponsor.name}} </td>
+            <td>{{sponsor.realname}} </td>
+            <td>{{definirTipoDocumento(sponsor.documenttype)}}</td>
+            <td>{{sponsor.document}}</td>
+            <td>{{definirEstado(sponsor.status)}}</td>
+            <td><a [routerLink]="['/sponsor.register', sponsor.id]">Modificar</a></td>
+        </tr>
+    </tbody>
+</table>
+</div>

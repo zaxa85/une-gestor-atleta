@@ -1,4 +1,4 @@
-export class SportEvent {
+export class Programa {
     
     id: number;
     id_fk_period_id: number;

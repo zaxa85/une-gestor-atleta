@@ -4,24 +4,26 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { NgModule, ErrorHandler } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
- 
+
 import { AppComponent } from './app.component';
 import { routing } from './app.routing';
 
 import { AlertComponent } from './_directives/index';
- import { TopNavComponent } from './_directives/index';
+import { TopNavComponent } from './_directives/index';
 import { MenuListItemComponent } from './_directives/index';
 
 import { MediaMatcher } from '@angular/cdk/layout';
- 
-import {HttpClientModule} from '@angular/common/http' 
+import { FlexLayoutModule } from '@angular/flex-layout';
+
+import { HttpClientModule } from '@angular/common/http'
 
 import { AuthGuard } from './_guards/index';
 import {
   AlertService,
-  AuthenticationService, 
+  AuthenticationService,
   UserService,
- 
+  AtletaService,
+  EntrenadorService,
   StorageService,
   NavService
 } from './_services/index';
@@ -29,6 +31,8 @@ import {
 import { LoginComponent } from './login/index';
 import { HomeComponent } from './home/index';
 
+import { AtletaListarComponent } from './atleta/index';
+import { EntrenadorListarComponent } from './entrenador/index';
 
 import { CustomErrorHandler } from './_shared/index';
 
@@ -43,7 +47,7 @@ import {
 import { CdkTableModule } from '@angular/cdk/table';
 import { OverlayModule } from '@angular/cdk/overlay';
 
- 
+
 
 @NgModule({
   exports: [
@@ -51,16 +55,12 @@ import { OverlayModule } from '@angular/cdk/overlay';
     CdkTableModule,
     OverlayModule,
     // Material
-    MatMenuModule,
-    MatButtonModule,
-    MatIconModule, MatSidenavModule, MatToolbarModule, MatListModule, MatExpansionModule, MatFormFieldModule,
-    MatCardModule,
-    MatInputModule
+    MatMenuModule, MatButtonModule, MatIconModule, MatSidenavModule, MatToolbarModule, 
+    MatListModule, MatExpansionModule, MatFormFieldModule, MatCardModule, MatInputModule
   ]
 })
 
 export class SharedMaterialModule { }
-
 
 @NgModule({
   declarations: [
@@ -79,7 +79,8 @@ export class SharedMaterialModule { }
     ReactiveFormsModule,
     SharedMaterialModule,
     routing,
-    HttpClientModule  
+    FlexLayoutModule,
+    HttpClientModule
 
   ],
   providers: [
@@ -89,7 +90,9 @@ export class SharedMaterialModule { }
     NavService,
     UserService,
     MediaMatcher,
-    StorageService
+    StorageService,
+    AtletaService,
+    EntrenadorService
     //{ provide: ErrorHandler, useClass: CustomErrorHandler } // overrride default error handler
   ],
   bootstrap: [AppComponent]

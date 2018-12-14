@@ -1,8 +1,8 @@
-export class Parameter {
+export class Parametro {
     
     id: number;
     key: string;
-    value: string;
+    valor: string;
     extra: string;
     
     constructor(
