@@ -1,6 +1,6 @@
 <div class="container">
-	<h4>Socios Registrados:</h4>
-	<a *ngIf="isAdmin" class="btn btn-default btn-sm" [routerLink]="['/member.register']">Registrar nuevo socio</a><br>
+	<h4>Atletas Registrados:</h4>
+	<a *ngIf="isAdmin" class="btn btn-default btn-sm" [routerLink]="['/atleta.registrar']">Registrar nuevo atleta</a><br>
 	<br>
 
 	<table>
@@ -29,13 +29,12 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr *ngFor="let member of members">
-				<td>{{member.id}}</td>
-				<td>{{member.firstname}} {{member.lastname}}</td>
-				<td>{{member.dob}}</td>
-				<td>{{member.datestart | date: 'yyyy-MM-dd'}}</td>
-				<td>{{showStatusDescription(member.status)}}</td>
-				<td *ngIf="isAdmin"><a [routerLink]="['/member.register', member.id]">Modificar</a></td>
+			<tr *ngFor="let atleta of atletas">
+				<td>{{atleta.id}}</td>
+				<td>{{atleta.nombre}} {{atleta.apellido}}</td>
+				<td>{{atleta.dni}}</td>
+				<td>{{atleta.fechanacimiento | date: 'yyyy-MM-dd'}}</td>
+				<td *ngIf="isAdmin"><a [routerLink]="['/member.register', atleta.id]">Modificar</a></td>
 			</tr>
 		</tbody>
 	</table>

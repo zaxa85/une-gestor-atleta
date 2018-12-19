@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
-import { AlertService, AuthenticationService, EntrenadorService } from '../_services/index';
+import { AlertService, EntrenadorService } from '../_services/index';
 import { Subscription } from 'rxjs';
 import { Entrenador } from '../_models/index';
 
@@ -11,7 +11,6 @@ import { Entrenador } from '../_models/index';
 
 export class EntrenadorListarComponent {
     loading = false;
-    private sub: Subscription;
     errorMessage: string;
     entrenador: Entrenador;
     model: any;
@@ -21,10 +20,9 @@ export class EntrenadorListarComponent {
     test: string;
 
     constructor(
-        private route: ActivatedRoute,
-        private router: Router,
         private entrenadorService: EntrenadorService,
-        private alertService: AlertService) { }
+        private alertService: AlertService
+    ) { }
 
     ngOnInit() {
         //Load periods dropdown

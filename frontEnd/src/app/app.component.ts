@@ -18,11 +18,11 @@ export class AppComponent implements AfterViewInit {
     {
       displayName: 'Gestión de Socios',
       iconName: 'face',
-      route: 'member.list',
+      route: 'atleta.listar',
     },
 
     {
-      displayName: 'Gestión Deportiva',
+      displayName: 'Gestión de Programa',
       iconName: 'fitness_center',
       route: '',
       children: [
@@ -45,9 +45,9 @@ export class AppComponent implements AfterViewInit {
     },
 
     {
-      displayName: 'Gestión de Patrocinadores',
+      displayName: 'Gestión de Entrenadores',
       iconName: 'business_center',
-      route: 'sponsor.list',
+      route: 'entrenador.listar',
     },
 
     {
@@ -56,7 +56,7 @@ export class AppComponent implements AfterViewInit {
       route: '',
       children: [
         {
-          displayName: 'Registro de Aportes de Socios',
+          displayName: 'Registro de pagos',
           iconName: 'group',
           route: 'control.payment'
         },
@@ -71,7 +71,7 @@ export class AppComponent implements AfterViewInit {
           route: 'expenditure.list'
         },
         {
-          displayName: 'Consulta de Aporte Individual',
+          displayName: 'Consulta de Pagos',
           iconName: 'feedback',
           route: 'payment.list'
         },

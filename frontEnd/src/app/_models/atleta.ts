@@ -1,12 +1,14 @@
 export class Atleta {
-    
+
     id: number;
     nombre: string;
     apellido: string;
-    fdn: Date;
+    dni: string;
+    fechanacimiento: Date;
     fechacreacion: Date;
     estado: number;
-    foto: string;
+    imagen: string;
+    idtipodocumento: string;
 
     constructor(
     ) { }

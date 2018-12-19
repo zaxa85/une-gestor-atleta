@@ -1,14 +1,14 @@
 export class Entrenador {
-    
+
     id: number;
     nombre: string;
     apellido: string;
-    fdn: Date;
-    fechainicio: Date;
+    dni: string;
+    fechanacimiento: Date;
+    fechacreacion: Date;
     estado: number;
-    foto: string;
-    disciplinas: string;
-    especialidad: string;
+    imagen: string;
+    idtipodocumento: string;
 
     constructor(
     ) { }

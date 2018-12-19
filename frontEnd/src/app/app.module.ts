@@ -32,7 +32,10 @@ import { LoginComponent } from './login/index';
 import { HomeComponent } from './home/index';
 
 import { AtletaListarComponent } from './atleta/index';
+import { AtletaRegistrarComponent } from './atleta/index';
 import { EntrenadorListarComponent } from './entrenador/index';
+import { EntrenadorRegistrarComponent } from './entrenador/index';
+
 
 import { CustomErrorHandler } from './_shared/index';
 
@@ -69,7 +72,11 @@ export class SharedMaterialModule { }
     TopNavComponent,
     MenuListItemComponent,
     HomeComponent,
-    LoginComponent
+    EntrenadorListarComponent,
+    EntrenadorRegistrarComponent,
+    AtletaListarComponent,
+    AtletaRegistrarComponent,
+    LoginComponent, 
 
   ],
   imports: [

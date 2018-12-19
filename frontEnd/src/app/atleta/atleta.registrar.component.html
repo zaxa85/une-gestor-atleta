@@ -1,54 +1,69 @@
 <div class="col-md-6 col-md-offset-3">
 	<h4>
-		Registro de Socios
+		Registro de Atletas
 	</h4>
 
 	<form data-toggle="validator" role="form" name="form" (ngSubmit)="f.form.valid && register()" #f="ngForm" novalidate>
 
 		<div class="form-group" [ngClass]="{ 'has-error': f.submitted }">
-			<input type="hidden" class="form-control" name="id" [(ngModel)]="member.id" #id="ngModel" value="{{member.id}}" />
+			<input type="hidden" class="form-control" name="id" [(ngModel)]="atleta.id" #id="ngModel" value="{{atleta.id}}" />
 		</div>
-		<div class="form-group" [ngClass]="{ 'has-error': f.submitted  && !status.valid}">
-			<label for="status">Estado</label> <select class="form-control" [(ngModel)]="member.status" name=status #status="ngModel">
+		<div class="form-group" [ngClass]="{ 'has-error': f.submitted  && !estado.valid}">
+			<label for="estado">Estado</label> <select class="form-control" [(ngModel)]="atleta.estado" name=estado #estado="ngModel">
 				<option *ngFor="let c of statuses" [ngValue]="c.id">{{c.name}}</option>
 			</select>
 		</div>
-		<div class="form-group" [ngClass]="{ 'has-error': f.submitted && !firstname.valid }">
-			<label for="firstname">Nombre</label> <input type="text" class="form-control" name="firstname" [(ngModel)]="member.firstname"
-			 #firstname="ngModel" required value="{{member.firstname}}" />
-			<div *ngIf="f.submitted && !firstname.valid" class="help-block">Nombre es requerido</div>
+		<div class="form-group" [ngClass]="{ 'has-error': f.submitted && !nombre.valid }">
+			<label for="nombre">Nombre</label> <input type="text" class="form-control" name="nombre" [(ngModel)]="atleta.nombre"
+			 #nombre="ngModel" required value="{{atleta.nombre}}" />
+			<div *ngIf="f.submitted && !nombre.valid" class="help-block">Nombre es requerido</div>
 		</div>
-		<div class="form-group" [ngClass]="{ 'has-error': f.submitted && !lastname.valid }">
-			<label for="lastname">Apellido</label> <input type="text" class="form-control" name="lastname" [(ngModel)]="member.lastname"
-			 #lastname="ngModel" required value="{{member.lastname}}" />
-			<div *ngIf="f.submitted && !lastname.valid" class="help-block">Apellido es requerido</div>
+		<div class="form-group" [ngClass]="{ 'has-error': f.submitted && !apellido.valid }">
+			<label for="apellido">Apellido</label> <input type="text" class="form-control" name="apellido" [(ngModel)]="atleta.apellido"
+			 #apellido="ngModel" required value="{{atleta.apellido}}" />
+			<div *ngIf="f.submitted && !apellido.valid" class="help-block">Apellido es requerido</div>
 		</div>
-		<div class="form-group" [ngClass]="{ 'has-error': f.submitted && !dob.valid}">
-			<label for="dob">Fecha de Nacimiento [MM/DD/YYYY]</label> <input type="date" class="form-control" name="dob"
-			 required [ngModel]="member.dob | date: 'yyyy-MM-dd'" #dob="ngModel" required (ngModelChange)="dateChanged1($event)" />
-			<div *ngIf="f.submitted && !dob.valid" class="help-block">La fecha de nacimiento es obligatorio</div>
+		<div class="form-group" [ngClass]="{ 'has-error': f.submitted && !fechanacimiento.valid}">
+			<label for="fechanacimiento">Fecha de Nacimiento [MM/DD/YYYY]</label> <input type="date" class="form-control" name="fechanacimiento"
+			 required [ngModel]="atleta.fechanacimiento | date: 'yyyy-MM-dd'" #fechanacimiento="ngModel" required
+			 (ngModelChange)="dateChanged1($event)" />
+			<div *ngIf="f.submitted && !fechanacimiento.valid" class="help-block">La fecha de nacimiento es obligatorio</div>
 		</div>
-		<div class="form-group" [ngClass]="{ 'has-error': f.submitted && !datestart.valid}">
-			<label for="datestart">Fecha de Ingreso [MM/DD/YYYY]</label> <input type="date" class="form-control" name="datestart" 
-			 required [ngModel]="member.datestart | date: 'yyyy-MM-dd'" #datestart="ngModel" required (ngModelChange)="dateChanged2($event)" />
-			<div *ngIf="f.submitted && !datestart.valid" class="help-block">La fecha de ingreso es obligatorio</div>
+		<div class="form-group" [ngClass]="{ 'has-error': f.submitted && !fechacreacion.valid}">
+			<label for="fechacreacion">Fecha de Ingreso [MM/DD/YYYY]</label> <input type="date" class="form-control" name="fechacreacion"
+			 required [ngModel]="atleta.fechacreacion | date: 'yyyy-MM-dd'" #fechacreacion="ngModel" required (ngModelChange)="dateChanged2($event)" />
+			<div *ngIf="f.submitted && !fechacreacion.valid" class="help-block">La fecha de ingreso es obligatorio</div>
 		</div>
 		
-		<img id="preview_image" [src]="'http://localhost:3000/api/containers/members/download/' + member.photoname" alt="your image"
-		 width="200px" height="200px" />
+		<img id="preview_image" [src]="'http://localhost:3000/api/containers/atletas/download/' + atleta.imagen" alt="your image"
+		width="200px" height="200px" />
+	
+		<div class="form-group">   
 
-		<div class="form-group" [ngClass]="{ 'has-error': f.submitted && !photoname.valid}">
-			<label class="btn btn-info" for="photoname">Adjuntar Foto de Integrante
+			<label class="btn btn-info" for="imagen">Adjuntar Foto de Integrante
 
-				<input type='file' name="photoname" [(ngModel)]="member.photoname"  #photoname="ngModel" accept="image/*" (change)="onFileChanged($event)" style="display:none;">
-
-			</label>
-			<span>{{member.photoname}}</span>
+				<input  type='file' name="imagen" #imagen accept="image/*" (change)="onFileChanged($event);" >
+ 
+		<!--
+				<input type='file' name="imagen" [(ngModel)]="atleta.imagen"  #imagen="ngModel" accept="image/*" (change)="onFileChanged($event)" style="display:none;">
+		-->
+ 			</label>
+			<span>{{atleta.imagen}}</span>
 		</div>
+
+<!--
 		<div class="form-group">
-			<button type="submit" [disabled]="loading" class="btn btn-primary">Guardar</button>
-			<img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
-			<a [routerLink]="['/member.list']" class="btn btn-link">Regresar</a>
+			<label>Select file to upload.</label>
+			<input type="file" id="bannedList" (change)="onFileChange($event);" #fileInput>
 		</div>
+	<button type="button" (click)="onSubmit();" [disabled]="!fileInput.value" class="btn btn-success pull-right"><i class="fa fa-save fa-fw"></i>
+		Upload File</button>
+-->
+
+	<div class="form-group">
+		<button type="submit" [disabled]="loading" class="btn btn-primary">Guardar</button>
+		<img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+		<a [routerLink]="['/atleta.listar']" class="btn btn-link">Regresar</a>
+	</div>
 	</form>
 </div>

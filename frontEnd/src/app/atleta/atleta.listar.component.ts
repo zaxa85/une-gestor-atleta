@@ -12,7 +12,7 @@ import { DatePipe } from '@angular/common';
 
 export class AtletaListarComponent implements OnInit {
     currentUser: User;
-    atleta: Atleta[] = [];
+    atletas: Atleta[] = [];
     statuses = [{ id: 1, name: "Activo" }, { id: 2, name: "Suspendido" }, { id: 0, name: "Inactivo" }, { id: -1, name: "Todos" }];
     statusFilter = 1;
     isAdmin = false;
@@ -43,7 +43,7 @@ export class AtletaListarComponent implements OnInit {
     }
 
     private loadAllUsers(status : number) {
-        this.memberService.getByStatus(status).subscribe(atleta => { this.atleta = atleta; });
+        this.memberService.getByStatus(status).subscribe(atletas => { this.atletas = atletas; });
     }
     
     showStatusDescription(status : number) : string {
@@ -60,9 +60,9 @@ export class AtletaListarComponent implements OnInit {
     
     onChange(status) {        
        if (status != -1) {
-            this.memberService.getByStatus(status).subscribe(atleta => { this.atleta = atleta; });
+            this.memberService.getByStatus(status).subscribe(atletas => { this.atletas = atletas; });
        } else {
-           this.memberService.getAll().subscribe(atleta => { this.atleta = atleta; });
+           this.memberService.getAll().subscribe(atletas => { this.atletas = atletas; });
        }
     }
 }

@@ -4,6 +4,7 @@ import { AlertService, AtletaService, StorageService } from '../_services/index'
 import { Atleta } from '../_models/index';
 import { DatePipe } from '@angular/common';
 import { environment } from '../../environments/environment';
+import { Subscription } from 'rxjs';
 
 
 @Component({
@@ -18,7 +19,7 @@ import { environment } from '../../environments/environment';
 
 export class AtletaRegistrarComponent {
     loading = false;
-    //private sub: Subscription;
+    private sub: Subscription;
     errorMessage: string;
     atleta: Atleta;
     statuses = [{ id: 1, name: "Activo" }, { id: 2, name: "Suspendido" }, { id: 0, name: "Inactivo" }];
@@ -39,7 +40,7 @@ export class AtletaRegistrarComponent {
         if (event.target.files && event.target.files[0]) {
 
             this.fileToUpload = event.target.files[0];
-            this.atleta.foto = this.fileToUpload.name;
+            this.atleta.imagen = this.fileToUpload.name;
 
             const reader = new FileReader();
 
@@ -55,7 +56,7 @@ export class AtletaRegistrarComponent {
     }
 
     uploadFileToActivity() {
-        this.fileUploadService.postFile(this.fileToUpload, 'members').subscribe(data => {
+        this.fileUploadService.postFile(this.fileToUpload, 'atletas').subscribe(data => {
             // do something, if upload success
         }, error => {
             console.log(error);
@@ -72,7 +73,7 @@ export class AtletaRegistrarComponent {
                 .subscribe(
                     data => {
                         this.alertService.success('Registro exitoso', true);
-                        this.router.navigate(['/member.list']);
+                        this.router.navigate(['/atleta.listar']);
                     },
                     error => {
                         this.alertService.error(error);
@@ -85,7 +86,7 @@ export class AtletaRegistrarComponent {
                 .subscribe(
                     data => {
                         this.alertService.success('Modificación exitosa', true);
-                        this.router.navigate(['/member.list']);
+                        this.router.navigate(['/atleta.listar']);
                     },
                     error => {
                         this.alertService.error(error);
@@ -102,12 +103,15 @@ export class AtletaRegistrarComponent {
         //Initializing member
         this.atleta = new Atleta();
         this.atleta.estado = 1;
-        this.atleta.foto = "default.jpg";
+        this.atleta.idtipodocumento = "1";
+        this.atleta.dni = "1";
+
+        this.atleta.imagen = "default.jpg";
         this.atleta.fechacreacion = new Date();//this.datePipe.transform(new Date(), 'yyyy-MM-dd');
-        this.atleta.fdn = new Date(); //this.datePipe.transform(new Date(), 'yyyy-MM-dd');
+        this.atleta.fechanacimiento = new Date(); //this.datePipe.transform(new Date(), 'yyyy-MM-dd');
 
         //Loading member if it exists
-/*
+
         this.sub = this.route.params
             .subscribe(
                 params => {
@@ -116,7 +120,7 @@ export class AtletaRegistrarComponent {
                         this.getMember(id);
                     }
                 });
-*/
+
     }
 
     getMember(id: number) {
@@ -130,7 +134,7 @@ export class AtletaRegistrarComponent {
     }
 
     dateChanged1(newDate) {
-        this.atleta.fdn = newDate;
+        this.atleta.fechanacimiento = newDate;
     }
 
     dateChanged2(newDate) {
