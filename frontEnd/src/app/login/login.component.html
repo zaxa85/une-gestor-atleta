@@ -1,0 +1,41 @@
+<div class="signin-content">
+    <mat-card>
+        <mat-card-content>
+            <img alt="test" src="../../assets/logo.jpg" height="250" width="250" />
+            <form [formGroup]="form" (ngSubmit)="login()">
+                <p>Ingrese sus datos para continuar</p>
+                <mat-form-field class="full-width-input">
+                    <input matInput placeholder="Usuario" formControlName="userName" required>
+                    <mat-error *ngIf="isFieldInvalid('userName')">
+                        Ingrese su nombre de usuario
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field class="full-width-input">
+                    <input matInput type="Contraseña" placeholder="Password" formControlName="password" required>
+                    <mat-error *ngIf="isFieldInvalid('userName')">
+                        Ingrese su contraseña
+                    </mat-error>
+                </mat-form-field>
+                <button mat-raised-button color="primary">Login</button>
+            </form>
+        </mat-card-content>
+    </mat-card>
+    <table class="table table-hover table-sm table-inverse table-responsive table-condensed">
+		<thead class="thead-inverse">
+			<tr>
+				<th>#</th>
+				<th>Nombres</th>
+				<th>Fecha de Nac.</th>
+				<th>Fecha de inicio</th>
+				<th>Estado</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr *ngFor="let user of users">
+				<td>{{user.id}}</td>
+				<td>{{user.login}}</td>
+			</tr>
+		</tbody>
+	</table>
+</div>

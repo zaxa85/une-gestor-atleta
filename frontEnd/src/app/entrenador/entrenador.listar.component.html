@@ -1,0 +1,34 @@
+<div class="container">
+
+<h4>Entrenadores Registrados:</h4>
+<a class="btn btn-default btn-sm" [routerLink]="['/entrenador.registrar']">Registrar nuevo entrenador</a>
+<br>
+<br>
+
+
+<table class="table table-hover table-sm table-inverse  table-condensed">
+    <thead>
+        <tr>
+            <th style="width: 5%">#</th>
+            <th style="width: 25%">Nombre</th>
+            <th style="width: 20%">Apellido</th>
+            <th style="width: 25%">Tipo de documento</th>
+            <th style="width: 25%">Documento de identidad</th>
+            <th style="width: 20%">Estado</th>
+            <th style="width: 20%"></th>
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let entrenador of entrenadores">
+            <td>{{entrenador.id}}</td>
+            <td>{{entrenador.nombre}} </td>
+            <td>{{entrenador.apellido}} </td>
+            <td>{{definirTipoDocumento(entrenador.idtipodocumento)}}</td>
+            <td>{{entrenador.dni}}</td>
+            <td>{{definirEstado(entrenador.estado)}}</td>
+            <td><a [routerLink]="['/entrenador.registrar', entrenador.id]">Modificar</a></td>
+        </tr>
+    </tbody>
+</table>
+</div>

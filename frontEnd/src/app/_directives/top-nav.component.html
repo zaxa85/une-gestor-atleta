@@ -1,0 +1,33 @@
+<mat-toolbar color="primary" class="mat-elevation-z1" *ngIf="isLogged">
+  <button mat-icon-button (click)="navService.openNav()">
+    <mat-icon>apps</mat-icon>
+  </button>
+  <div routerLink="/" class="pl-15">Gestor de Atletas </div>
+  <div routerLink="/" class="pl-15 visible-lg visible-md hidden-sm hidden-xs" style="overflow: hidden;"> - UNE Formando Atletas</div>
+  <span class="spacer"></span>
+
+
+  <!--
+  User: {{userFullName}} &nbsp;
+  Tipo de Usuario: {{userType}}
+-->
+  &nbsp;
+
+  <button mat-icon-button class="icon-white vert-align-mid" mat-button (click)="logout()">
+    <mat-icon>power_settings_new
+    </mat-icon>
+  </button>
+  <button mat-icon-button class="icon-white vert-align-mid" mat-button (click)="logout()">
+    <mat-icon>settings</mat-icon>
+  </button>
+
+
+  <a routerLink="['/login']" class="auth_icon">
+    <ng-container *ngIf="imageUrl.length > 0;else show_icon">
+      <img class="img-circle" src="{{imageUrl}}">
+    </ng-container>
+    <ng-template #show_icon>
+      <mat-icon class="icon-white vert-align-mid">fingerprint</mat-icon>
+    </ng-template>
+  </a>
+</mat-toolbar>

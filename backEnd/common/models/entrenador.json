@@ -1,0 +1,51 @@
+{
+  "name": "entrenador",
+  "plural": "entrenadores",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "id": {
+      "type": "number",
+      "required": true
+    },
+    "nombre": {
+      "type": "string",
+      "required": true
+    },
+    "apellido": {
+      "type": "string",
+      "required": true
+    },
+    "fechanacimiento": {
+      "type": "date",
+      "required": true
+    },
+    "fechacreacion": {
+      "type": "date",
+      "required": true
+    },
+    "dni": {
+      "type": "string",
+      "required": true
+    },
+    "estado": {
+      "type": "number",
+      "required": true
+    },
+    "imagen": {
+      "type": "string",
+      "required": true
+    },
+    "idtipodocumento": {
+      "type": "number",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

@@ -42,6 +42,14 @@
     "dataSource": "Postgres",
     "public": true
   },
+  "entrenador": {
+    "dataSource": "Postgres",
+    "public": true
+  },
+  "user2": {
+    "dataSource": "Postgres",
+    "public": true
+  },
   "container": {
     "dataSource": "storage",
     "public": true

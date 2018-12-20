@@ -19,7 +19,11 @@
       "type": "string",
       "required": true
     },
-    "fechaNacimiento": {
+    "fechanacimiento": {
+      "type": "date",
+      "required": true
+    },
+    "fechacreacion": {
       "type": "date",
       "required": true
     },
@@ -35,7 +39,7 @@
       "type": "string",
       "required": true
     },
-    "idTipoDocumento": {
+    "idtipodocumento": {
       "type": "number",
       "required": true
     }
