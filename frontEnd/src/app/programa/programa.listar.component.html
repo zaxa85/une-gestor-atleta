@@ -1,6 +1,8 @@
 <div class="container">
-	<h4>Atletas Registrados:</h4>
-	<a *ngIf="isAdmin" class="btn btn-default btn-sm" [routerLink]="['/atleta.registrar']">Registrar nuevo atleta</a><br>
+	<h4>Programas Registrados:</h4>
+	<a *ngIf="isAdmin" class="btn btn-default btn-sm" [routerLink]="['/atleta.listar']">Asignar programa a un atleta</a>
+	<a *ngIf="isAdmin" class="btn btn-default btn-sm" [routerLink]="['/programa.registrar']">Gestionar programas</a>
+	<br>
 	<br>
 
 	<table>
@@ -24,7 +26,7 @@
 				<th>Nombres</th>
 				<th>Fecha de Nac.</th>
 				<th>Fecha de inicio</th>
-				<th></th>
+				<th>Estado</th>
 				<th></th>
 			</tr>
 		</thead>
@@ -33,12 +35,8 @@
 				<td>{{atleta.id}}</td>
 				<td>{{atleta.nombre}} {{atleta.apellido}}</td>
 				<td>{{atleta.dni}}</td>
-				<td>{{atleta.fechanacimiento | date: 'yyyy-MM-dd'}}</td>
-
-				<td *ngIf="isAdmin">
-					<a [routerLink]="['/atleta.registrar', atleta.id]">Modificar</a> |
-					<a [routerLink]="['/programa.asignar', atleta.id]">Asignar a Programa</a>
-				</td>
+				<td>{{atleta.fechanacimiento | date: 'yyyy-MM-dd'}}</td> 
+				<td *ngIf="isAdmin"><a [routerLink]="['/programa.asignar', atleta.id]">Modificar</a></td>
 			</tr>
 		</tbody>
 	</table>

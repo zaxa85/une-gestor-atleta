@@ -5,12 +5,12 @@ import { AtletaService } from '../_services/index';
 import { DatePipe } from '@angular/common';
 
 @Component({
-    selector: 'atletalist',
-    templateUrl: 'atleta.listar.component.html',
+    selector: 'programalist',
+    templateUrl: 'programa.listar.component.html',
     providers: [DatePipe]
 })
 
-export class AtletaListarComponent implements OnInit {
+export class ProgramaListarComponent implements OnInit {
     currentUser: User;
     atletas: Atleta[] = [];
     statuses = [{ id: 1, name: "Activo" }, { id: 2, name: "Suspendido" }, { id: 0, name: "Inactivo" }, { id: -1, name: "Todos" }];

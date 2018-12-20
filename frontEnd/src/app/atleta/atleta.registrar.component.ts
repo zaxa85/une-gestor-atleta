@@ -8,6 +8,7 @@ import { Subscription } from 'rxjs';
 
 
 @Component({
+    //selector: module.id,
     templateUrl: 'atleta.registrar.component.html',
     styles: [`
     .preview img{
@@ -117,13 +118,13 @@ export class AtletaRegistrarComponent {
                 params => {
                     let id = +params['id'];
                     if (!isNaN(id)) {
-                        this.getMember(id);
+                        this.getAtleta(id);
                     }
                 });
 
     }
 
-    getMember(id: number) {
+    getAtleta(id: number) {
         this.atletaService.getById(id).subscribe(
             atleta => this.atleta = atleta,
             error => this.errorMessage = <any>error);

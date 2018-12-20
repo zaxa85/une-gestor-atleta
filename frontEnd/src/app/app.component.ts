@@ -24,24 +24,7 @@ export class AppComponent implements AfterViewInit {
     {
       displayName: 'Gestión de Programa',
       iconName: 'fitness_center',
-      route: '',
-      children: [
-        {
-          displayName: 'Calendario de Eventos',
-          iconName: 'group',
-          route: 'sport.list'
-        },
-        {
-          displayName: 'Gestor de Competencias',
-          iconName: 'speaker_notes',
-          route: 'sport.event'
-        },
-        {
-          displayName: 'Rendimiento del Equipo',
-          iconName: 'feedback',
-          route: 'sport.team'
-        }
-      ]
+      route: 'programa.listar',
     },
 
     {

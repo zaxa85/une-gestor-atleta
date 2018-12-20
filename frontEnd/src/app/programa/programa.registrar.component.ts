@@ -8,7 +8,7 @@ import { Subscription } from 'rxjs';
 
 
 @Component({
-    templateUrl: 'programa.asignar.compoment.html',
+    templateUrl: 'programa.registrar.component.html',
     styles: [`
     .preview img{
       max-height: 50px;
@@ -17,7 +17,7 @@ import { Subscription } from 'rxjs';
     providers: [DatePipe]
 })
 
-export class ProgramaAsignarComponent {
+export class ProgramaRegistrarComponent {
     loading = false;
     private sub: Subscription;
     errorMessage: string;

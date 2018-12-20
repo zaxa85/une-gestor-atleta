@@ -1,21 +1,14 @@
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
 import { NgModule, ErrorHandler } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http'
 
 import { AppComponent } from './app.component';
 import { routing } from './app.routing';
 
-import { AlertComponent } from './_directives/index';
-import { TopNavComponent } from './_directives/index';
-import { MenuListItemComponent } from './_directives/index';
-
-import { MediaMatcher } from '@angular/cdk/layout';
-import { FlexLayoutModule } from '@angular/flex-layout';
-
-import { HttpClientModule } from '@angular/common/http'
+import { AlertComponent, TopNavComponent, MenuListItemComponent } from './_directives/index';
 
 import { AuthGuard } from './_guards/index';
 import {
@@ -35,21 +28,21 @@ import { AtletaListarComponent } from './atleta/index';
 import { AtletaRegistrarComponent } from './atleta/index';
 import { EntrenadorListarComponent } from './entrenador/index';
 import { EntrenadorRegistrarComponent } from './entrenador/index';
-
+import { ProgramaListarComponent } from './programa/index';
+import { ProgramaRegistrarComponent } from './programa/index';
+import { ProgramaAsignarComponent } from './programa/index';
 
 import { CustomErrorHandler } from './_shared/index';
 
-import { MatCardModule } from '@angular/material/card';
-import { MatInputModule } from '@angular/material/input';
-
 import {
   MatMenuModule, MatIconModule, MatButtonModule, MatSidenavModule, MatToolbarModule,
-  MatListModule, MatExpansionModule, MatFormFieldModule
+  MatListModule, MatExpansionModule, MatFormFieldModule, MatCardModule, MatInputModule
 } from '@angular/material';
 
 import { CdkTableModule } from '@angular/cdk/table';
 import { OverlayModule } from '@angular/cdk/overlay';
-
+import { MediaMatcher } from '@angular/cdk/layout';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 
 @NgModule({
@@ -72,10 +65,9 @@ export class SharedMaterialModule { }
     TopNavComponent,
     MenuListItemComponent,
     HomeComponent,
-    EntrenadorListarComponent,
-    EntrenadorRegistrarComponent,
-    AtletaListarComponent,
-    AtletaRegistrarComponent,
+    EntrenadorListarComponent, EntrenadorRegistrarComponent,
+    AtletaListarComponent,AtletaRegistrarComponent,
+    ProgramaListarComponent, ProgramaRegistrarComponent, ProgramaAsignarComponent,
     LoginComponent, 
 
   ],
