@@ -45,9 +45,9 @@ export class RegisterExpenditureComponent {
         this.loading = true;
 
         // If Expenditure is NaN, this will follow expenditure creation
-        if (isNaN(this.expenditure.id)) {
+        if (isNaN(this.gasto.id)) {
 
-            this.expenditureService.create(this.expenditure)
+            this.expenditureService.create(this.gasto)
                 .subscribe(
                 data => {
                     this.alertService.success('Registro exitoso', true);
@@ -61,7 +61,7 @@ export class RegisterExpenditureComponent {
         }
         else {
 
-            this.expenditureService.update(this.expenditure)
+            this.expenditureService.update(this.gasto)
                 .subscribe(
                 data => {
                     this.alertService.success('Modificación exitosa', true);
@@ -81,7 +81,7 @@ export class RegisterExpenditureComponent {
         if (event.target.files && event.target.files[0]) {
 
             this.fileToUpload = event.target.files[0];
-            this.expenditure.documento = this.fileToUpload.name;
+            this.gasto.documento = this.fileToUpload.name;
 
             const reader = new FileReader();
 
@@ -110,11 +110,11 @@ export class RegisterExpenditureComponent {
         this.periodService.getByStatus(1).subscribe(periods => { this.periods = periods; });
 
         //Initializing expenditure
-        this.expenditure = new Gasto();
-        this.expenditure.estado = 1;
-        this.expenditure.tipo = 0;
-        this.expenditure.documento = "default.jpg";
-        this.expenditure.idperiodo = (new Date()).getFullYear();
+        this.gasto = new Gasto();
+        this.gasto.estado = 1;
+        this.gasto.tipo = 0;
+        this.gasto.documento = "default.jpg";
+        this.gasto.idperiodo = (new Date()).getFullYear();
 
       //  this.expenditure.datestart = new Date();//this.datePipe.transform(new Date(), 'yyyy-MM-dd');
        // this.expenditure.dob = new Date(); //this.datePipe.transform(new Date(), 'yyyy-MM-dd');
