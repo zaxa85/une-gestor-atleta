@@ -1,0 +1,38 @@
+<div class="container">
+    <h4>Aportes Registrados:</h4>
+    <a class="btn btn-default btn-sm" [routerLink]="['/control.register.payment', 'single']">Registrar nuevo aporte</a>
+    <br>
+    <br>
+    <table>
+        <tr>
+            <td style="width: 10%">Aportes del Año:</td>
+            <td style="width: 20%">
+                <select class="form-control" [(ngModel)]="statusFilter" name=periodFilter (change)="onChange($event.target.value)">
+                    <option *ngFor="let c of periods" [ngValue]="c.id">{{c.name}}</option>
+                </select>
+            </td>
+            <td style="width: 40%"></td>
+        </tr>
+    </table>
+    <br>
+    <table class="table table-hover table-sm table-inverse  table-condensed">
+        <thead>
+            <tr>
+                <th style="width: 5%">#</th>
+                <th style="width: 25%">Periodo / Mes</th>
+                <th style="width: 20%">Monto</th>
+                <th style="width: 20%">Documento</th>
+                <th style="width: 20%">Estado</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let payment of model">
+                <td>{{payment.id}}</td>
+                <td>{{payment.id_fk_period_id}} / {{payment.month}}</td>
+                <td>{{payment.amount}}</td>
+                <td>{{payment.document}}</td>
+                <td>{{definirEstado(payment.status)}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

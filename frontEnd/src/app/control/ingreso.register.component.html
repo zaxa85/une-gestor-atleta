@@ -1,0 +1,54 @@
+
+<div class="container">
+	<h4>
+		 Registro de Ingresos 
+	</h4>
+
+	<form data-toggle="validator" role="form" name="form" (ngSubmit)="f.form.valid && register()" #f="ngForm" novalidate>
+	
+		<div class="form-group" [ngClass]="{ 'has-error': f.submitted }">
+			<input type="hidden" class="form-control" name="id" [(ngModel)]="income.id" #id="ngModel" value="{{income.id}}" />
+		</div>
+		<div class="form-group" [ngClass]="{ 'has-error': f.submitted  && !id_fk_period_id.valid}">
+			<label for="id_fk_period_id">Periodo</label> <select class="form-control" [(ngModel)]="income.id_fk_period_id" name=id_fk_period_id #id_fk_period_id="ngModel" >
+				<option *ngFor="let c of periods" [ngValue]="c.id">{{c.name}}</option>
+			</select>
+		</div>
+		<div class="form-group" [ngClass]="{ 'has-error': f.submitted  && !status.valid}">
+			<label for="status">Estado</label> <select class="form-control" [(ngModel)]="income.status" name=status #status="ngModel" >
+				<option *ngFor="let c of statuses" [ngValue]="c.id">{{c.name}}</option>
+			</select>
+		</div>	
+		<div class="form-group" [ngClass]="{ 'has-error': f.submitted  && !type.valid}">
+			<label for="type">Tipo</label> <select class="form-control" [(ngModel)]="income.type" name=type #type="ngModel" >
+				<option *ngFor="let c of types" [ngValue]="c.id">{{c.name}}</option>
+			</select>
+		</div>	
+		<div class="form-group" [ngClass]="{ 'has-error': f.submitted && !amount.valid }">
+			<label for="amount">Monto</label> <input type="text" class="form-control" name="amount" [(ngModel)]="income.amount" #amount="ngModel" required value="{{income.amount}}" />
+			<div *ngIf="f.amount && !amount.valid" class="help-block">Monto es requerido</div>
+		</div>
+		
+		<div class="form-group" [ngClass]="{ 'has-error': f.submitted && !description.valid }">
+			<label for="description">Descripcion</label> <input type="text" class="form-control" name="description" [(ngModel)]="income.description" #description="ngModel" required value="{{income.document}}" />
+			<div *ngIf="f.description && !description.valid" class="help-block">Descripcion es requerido</div>
+		</div>
+
+		<img id="preview_image" [src]="'http://localhost:3000/api/containers/incomes/download/' + income.document" alt="your image"
+		width="200px" height="200px" />
+
+	   <div class="form-group" [ngClass]="{ 'has-error': f.submitted }">
+		   <label class="btn btn-info" for="income">Adjuntar Foto de Integrante
+			   <input id="income" type='file' name="income" accept="image/*" (change)="onFileChanged($event)" style="display:none;">
+		   </label>
+		   <span>{{income.document}}</span>
+	   </div>
+
+		<div class="form-group">
+			<button type="submit" [disabled]="loading" class="btn btn-primary">Guardar</button>
+			<img *ngIf="loading"
+				src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+			<a [routerLink]="['/income.list']" class="btn btn-link">Regresar</a>
+		</div>
+	</form>
+</div>

@@ -6,3 +6,8 @@ export * from './nav.service';
 
 export * from './entrenador.service';
 export * from './atleta.service';
+
+export * from './pago.service';
+export * from './ingreso.service';
+export * from './gasto.service';
+export * from './periodo.service';

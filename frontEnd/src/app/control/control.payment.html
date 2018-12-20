@@ -1,0 +1,116 @@
+<div class="container">
+	<h4>Aportes Registrados:</h4>
+	<a class="btn btn-default btn-sm" [routerLink]="['/control.register.payment', 'all']">Registrar nuevo aporte</a>
+	<a class="btn btn-default btn-sm" [routerLink]="['/period.register']" style="float: right">Registrar nuevo periodo</a>
+	<br>
+	<br>
+
+	<table>
+		<tr>
+			<td style="width: 10%">Aportes del Año:</td>
+			<td style="width: 20%">
+				<select class="form-control" [(ngModel)]="statusFilter" name=periodFilter (change)="onChange($event.target.value)">
+					<option *ngFor="let c of periods" [ngValue]="c.id">{{c.name}}</option>
+				</select>
+			</td>
+			<td style="width: 40%"></td>
+		</tr>
+	</table>
+	<br>
+	<table class="table table-hover table-sm table-inverse  table-condensed">
+		<thead>
+			<tr>
+				<th style="width: 5%">#</th>
+				<th style="width: 25%">Nombres</th>
+				<th style="width: 20%">Fecha de inicio</th>
+				<th>Ene</th>
+				<th>Feb</th>
+				<th>Mar</th>
+				<th>Apr</th>
+				<th>May</th>
+				<th>Jun</th>
+				<th>Jul</th>
+				<th>Aug</th>
+				<th>Sep</th>
+				<th>Oct</th>
+				<th>Nov</th>
+				<th>Dec</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr *ngFor="let payment of model">
+				<td>{{payment.id_fk_member_id}}</td>
+				<td>{{payment.firstname}} {{payment.lastname}}</td>
+				<td>{{payment.datestart}}</td>
+				<td>
+					<a [ngClass]="setFormat(payment.jan.split('#')[3])" [routerLink]="['/control.register.payment', payment.jan.split('#')[0]]">
+						<div title="{{payment.jan.split('#')[2]}}">{{payment.jan.split('#')[1]}} </div>
+					</a>
+				</td>
+				<td>
+					<a [ngClass]="setFormat(payment.feb.split('#')[3])" [routerLink]="['/control.register.payment', payment.feb.split('#')[0]]">
+						<div title="{{payment.feb.split('#')[2]}}">{{payment.feb.split('#')[1]}}</div>
+					</a>
+				</td>
+				<td>
+					<a [ngClass]="setFormat(payment.mar.split('#')[3])" [routerLink]="['/control.register.payment', payment.mar.split('#')[0]]">
+						<div title="{{payment.mar.split('#')[2]}}">{{payment.mar.split('#')[1]}}</div>
+					</a>
+				</td>
+				<td>
+					<a [ngClass]="setFormat(payment.apr.split('#')[3])" [routerLink]="['/control.register.payment', payment.apr.split('#')[0]]">
+						<div title="{{payment.apr.split('#')[2]}}">{{payment.apr.split('#')[1]}}</div>
+					</a>
+				</td>
+
+				<td>
+					<a [ngClass]="setFormat(payment.may.split('#')[3])" [routerLink]="['/control.register.payment', payment.may.split('#')[0]]">
+						<div title="{{payment.may.split('#')[2]}}">{{payment.may.split('#')[1]}}</div>
+					</a>
+				</td>
+
+				<td>
+					<a [ngClass]="setFormat(payment.jun.split('#')[3])" [routerLink]="['/control.register.payment', payment.jun.split('#')[0]]">
+						<div title="{{payment.jun.split('#')[2]}}">{{payment.jun.split('#')[1]}}</div>
+					</a>
+				</td>
+
+				<td>
+					<a [ngClass]="setFormat(payment.jul.split('#')[3])" [routerLink]="['/control.register.payment', payment.jul.split('#')[0]]">
+						<div title="{{payment.jul.split('#')[2]}}">{{payment.jul.split('#')[1]}}</div>
+					</a>
+				</td>
+
+				<td>
+					<a [ngClass]="setFormat(payment.aug.split('#')[3])" [routerLink]="['/control.register.payment', payment.aug.split('#')[0]]">
+						<div title="{{payment.aug.split('#')[2]}}">{{payment.aug.split('#')[1]}}</div>
+					</a>
+				</td>
+
+				<td>
+					<a [ngClass]="setFormat(payment.sep.split('#')[3])" [routerLink]="['/control.register.payment', payment.sep.split('#')[0]]">
+						<div title="{{payment.sep.split('#')[2]}}">{{payment.sep.split('#')[1]}}</div>
+					</a>
+				</td>
+
+				<td>
+					<a [ngClass]="setFormat(payment.oct.split('#')[3])" [routerLink]="['/control.register.payment', payment.oct.split('#')[0]]">
+						<div title="{{payment.oct.split('#')[2]}}">{{payment.oct.split('#')[1]}}</div>
+					</a>
+				</td>
+
+				<td>
+					<a [ngClass]="setFormat(payment.nov.split('#')[3])" [routerLink]="['/control.register.payment', payment.nov.split('#')[0]]">
+						<div title="{{payment.nov.split('#')[2]}}">{{payment.nov.split('#')[1]}}</div>
+					</a>
+				</td>
+
+				<td>
+					<a [ngClass]="setFormat(payment.dec.split('#')[3])" [routerLink]="['/control.register.payment', payment.dec.split('#')[0]]">
+						<div title="{{payment.dec.split('#')[2]}}">{{payment.dec.split('#')[1]}}</div>
+					</a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
