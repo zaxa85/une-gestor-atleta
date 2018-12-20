@@ -1,0 +1,38 @@
+{
+  "name": "gasto",
+  "plural": "gastos",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "id": {
+      "type": "number",
+      "required": true
+    },
+    "idperiodo": {
+      "type": "number",
+      "required": true
+    },
+    "descripcion": {
+      "type": "string"
+    },
+    "estado": {
+      "type": "number"
+    },
+    "monto": {
+      "type": "number"
+    },
+    "tipo": {
+      "type": "number"
+    },
+    "documento": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

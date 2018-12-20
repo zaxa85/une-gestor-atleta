@@ -1,0 +1,48 @@
+{
+  "name": "ingreso",
+  "plural": "ingresos",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "id": {
+      "type": "number",
+      "required": true
+    },
+    "idperiodo": {
+      "type": "number",
+      "required": true
+    },
+    "descripcion": {
+      "type": "string"
+    },
+    "estado": {
+      "type": "number"
+    },
+    "monto": {
+      "type": "number"
+    },
+    "tipo": {
+      "type": "number"
+    },
+    "idsponsor": {
+      "type": "number"
+    },
+    "documento": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "sponsor": {
+      "type": "belongsTo",
+      "model": "sponsor",
+      "foreignKey": "id_fk_sponsor_id",
+      "through": ""
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

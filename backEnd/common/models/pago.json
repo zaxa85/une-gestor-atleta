@@ -1,0 +1,43 @@
+{
+  "name": "pago",
+  "plural": "pagos",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "id": {
+      "type": "number",
+      "required": true
+    },
+    "idatleta": {
+      "type": "number"
+    },
+    "idperiod": {
+      "type": "number"
+    },
+    "fecharealizado": {
+      "type": "string"
+    },
+    "fechacreado": {
+      "type": "string"
+    },
+    "estado": {
+      "type": "number"
+    },
+    "documentp": {
+      "type": "string"
+    },
+    "mes": {
+      "type": "number"
+    },
+    "monto": {
+      "type": "number"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

@@ -1,0 +1,51 @@
+{
+  "name": "programa",
+  "plural": "programas",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "id": {
+      "type": "number",
+      "required": true
+    },
+    "nombre": {
+      "type": "string",
+      "required": true
+    },
+    "disciplina": {
+      "type": "string",
+      "required": true
+    },
+    "costo": {
+      "type": "string",
+      "required": true
+    },
+    "duracion": {
+      "type": "number",
+      "required": true
+    },
+    "fechainicio": {
+      "type": "date",
+      "required": true
+    },
+    "fechafin": {
+      "type": "date",
+      "required": true
+    },
+    "disciplinas": {
+      "type": "string",
+      "required": true
+    },
+    "estado": {
+      "type": "number",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}
