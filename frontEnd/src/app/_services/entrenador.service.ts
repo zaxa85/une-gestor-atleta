@@ -12,22 +12,22 @@ export class EntrenadorService {
     constructor(private http: HttpClient) { }
 
     getAll() {
-        return this.http.get<Entrenador[]>(this.API_URL + '/api/sponsor');
+        return this.http.get<Entrenador[]>(this.API_URL + '/api/entrenadores');
     }
 
     getById(id: number) {
-        return this.http.get<Entrenador>(this.API_URL + '/api/sponsor/' + id);
+        return this.http.get<Entrenador>(this.API_URL + '/api/entrenadores/' + id);
     }
 
     create(sponsor: Entrenador) {
-        return this.http.post(this.API_URL + '/api/sponsor',sponsor);
+        return this.http.post(this.API_URL + '/api/entrenadores',sponsor);
     }
 
     update(sponsor: Entrenador) {
-        return this.http.put(this.API_URL + '/api/sponsor/' + sponsor.id, sponsor);
+        return this.http.put(this.API_URL + '/api/entrenadores/' + sponsor.id, sponsor);
     }
 
     delete(id: number) {
-        return this.http.delete(this.API_URL + '/api/sponsor/' + id);
+        return this.http.delete(this.API_URL + '/api/entrenadores/' + id);
     }
 }

@@ -130,7 +130,7 @@ export class AtletaRegistrarComponent {
     }
 
     ngOnDestroy() {
-        //this.sub.unsubscribe();
+        this.sub.unsubscribe();
     }
 
     dateChanged1(newDate) {

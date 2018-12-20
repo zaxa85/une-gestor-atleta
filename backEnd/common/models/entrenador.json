@@ -1,6 +1,6 @@
 {
-  "name": "atleta",
-  "plural": "atletas",
+  "name": "entrenador",
+  "plural": "entrenadores",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {

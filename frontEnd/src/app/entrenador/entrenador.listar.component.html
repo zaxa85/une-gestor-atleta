@@ -1,7 +1,7 @@
 <div class="container">
 
 <h4>Entrenadores Registrados:</h4>
-<a class="btn btn-default btn-sm" [routerLink]="['/sponsor.register']">Registrar nuevo entrenador</a>
+<a class="btn btn-default btn-sm" [routerLink]="['/entrenador.registrar']">Registrar nuevo entrenador</a>
 <br>
 <br>
 
@@ -15,17 +15,19 @@
             <th style="width: 25%">Tipo de documento</th>
             <th style="width: 25%">Documento de identidad</th>
             <th style="width: 20%">Estado</th>
+            <th style="width: 20%"></th>
+
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let entrenador of model">
+        <tr *ngFor="let entrenador of entrenadores">
             <td>{{entrenador.id}}</td>
             <td>{{entrenador.nombre}} </td>
             <td>{{entrenador.apellido}} </td>
             <td>{{definirTipoDocumento(entrenador.idtipodocumento)}}</td>
             <td>{{entrenador.dni}}</td>
             <td>{{definirEstado(entrenador.estado)}}</td>
-            <td><a [routerLink]="['/sponsor.register', sponsor.id]">Modificar</a></td>
+            <td><a [routerLink]="['/entrenador.registrar', entrenador.id]">Modificar</a></td>
         </tr>
     </tbody>
 </table>

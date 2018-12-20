@@ -12,8 +12,7 @@ import { Entrenador } from '../_models/index';
 export class EntrenadorListarComponent {
     loading = false;
     errorMessage: string;
-    entrenador: Entrenador;
-    model: any;
+    entrenadores: Entrenador[] = [];
 
     statuses = [{ id: 1, name: "Activo" }, { id: 0, name: "Inactivo" }];
     types = [{ id: 1, name: "Auspicio" }, { id: 2, name: "Donación" }, { id: 3, name: "Ganancia" }, { id: 0, name: "Otro" }];
@@ -30,7 +29,7 @@ export class EntrenadorListarComponent {
     }
 
     onChange(status) {
-        this.entrenadorService.getAll().subscribe(entrenador => { this.model = entrenador; });
+        this.entrenadorService.getAll().subscribe(entrenadores => { this.entrenadores = entrenadores; });
     }
 
     definirEstado(param) {

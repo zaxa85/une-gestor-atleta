@@ -13,18 +13,18 @@ const appRoutes: Routes = [
     { path: 'login', component: LoginComponent },
 
     { path: 'atleta.listar', component: AtletaListarComponent, canActivate: [AuthGuard] },
-    { path: 'atleta.register', component: AtletaRegistrarComponent, canActivate: [AuthGuard] },
+    { path: 'atleta.registrar', component: AtletaRegistrarComponent, canActivate: [AuthGuard] },
     {
-        path: 'member.register/:id',
+        path: 'atleta.registrar/:id',
         canActivate: [AuthGuard], component: AtletaRegistrarComponent
     },
 
 
     { path: 'entrenador.listar', component: EntrenadorListarComponent, canActivate: [AuthGuard] },
-    { path: 'entrenador.register', component: AtletaRegistrarComponent, canActivate: [AuthGuard] },
+    { path: 'entrenador.registrar', component: EntrenadorRegistrarComponent, canActivate: [AuthGuard] },
     {
-        path: 'member.register/:id',
-        canActivate: [AuthGuard], component: AtletaRegistrarComponent
+        path: 'entrenador.registrar/:id',
+        canActivate: [AuthGuard], component: EntrenadorRegistrarComponent
     },
 
 

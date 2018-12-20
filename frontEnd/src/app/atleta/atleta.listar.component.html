@@ -33,8 +33,8 @@
 				<td>{{atleta.id}}</td>
 				<td>{{atleta.nombre}} {{atleta.apellido}}</td>
 				<td>{{atleta.dni}}</td>
-				<td>{{atleta.fechanacimiento | date: 'yyyy-MM-dd'}}</td>
-				<td *ngIf="isAdmin"><a [routerLink]="['/member.register', atleta.id]">Modificar</a></td>
+				<td>{{atleta.fechanacimiento | date: 'yyyy-MM-dd'}}</td> 
+				<td *ngIf="isAdmin"><a [routerLink]="['/atleta.registrar', atleta.id]">Modificar</a></td>
 			</tr>
 		</tbody>
 	</table>
